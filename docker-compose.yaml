@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+    frontend:
+        container_name: ihor-frontend
+        build:
+            context: ./ihor-shapoval
+            dockerfile: Dockerfile
+        image: ihor-frontend
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./ihor-shapoval:/app
