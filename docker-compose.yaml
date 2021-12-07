@@ -3,10 +3,10 @@ services:
     frontend:
         container_name: ihor-frontend
         build:
-            context: ./ihor-shapoval
+            context: ./
             dockerfile: Dockerfile
         image: ihor-frontend
         ports:
             - "3000:3000"
         volumes:
-            - ./ihor-shapoval:/app
+            - ./:/app
