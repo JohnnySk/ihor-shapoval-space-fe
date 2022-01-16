@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+}
+
+.main-content{
+    margin-top: 70px;
+}
+
+.home-wrapper {
+    display: flex;
+}
+
+.skills {
+    flex-basis: 70%; height: 50%;
+    flex-grow: 2;
+}
+
+.avatar {
+    margin-right: 20%;
+}
+
+.footer-area {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: black;
+    color: grey;
+}

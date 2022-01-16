@@ -5,7 +5,7 @@ import {
 
 export default function NavElement({element}) {
     return (
-        <li className="link" key={element.id} id={element.elementId}>
+        <li className="link" key={element.id} id={element.id}>
             <Link to={element.route}>{element.linkName}</Link>
         </li>
     )

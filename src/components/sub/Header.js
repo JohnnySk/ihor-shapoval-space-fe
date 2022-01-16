@@ -1,5 +1,6 @@
 import React from 'react';
 import NavList from './NavList';
+import '../../styles/header.module.css';
 
 function Header({testData}) {
     return (

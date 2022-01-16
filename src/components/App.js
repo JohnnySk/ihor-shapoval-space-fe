@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Header from "./sub/Header";
 import Footer from "./sub/Footer";
 import Home from "./sub/Main/Home";
@@ -8,7 +8,8 @@ import {
 } from "react-router-dom";
 import { Provider } from 'react-redux';
 import store from './sub/Store';
-
+import '../styles/App.css';
+//todo: create dynamic route assignings based on the API response
 export default function App() {
     const testData = [
         {"id": 1, "route": '/', "linkName": 'LOGO', "elementId": 'logo'},
@@ -16,10 +17,26 @@ export default function App() {
         {"id": 3, "route": '/price', "linkName": 'Link Two', "elementId": 'two'},
         {"id": 4, "route": '/contact', "linkName": 'Link Three', "elementId": 'three'}
     ];
+    //create local state
+    let [navigation, setNavigation] = useState([]);
+    //use effect logic
+    useEffect(() => {
+        if (!navigation.length) {
+            getNavigationFromApi();
+        }
+    }, [navigation]);
+
+    function getNavigationFromApi() {
+        fetch('http://localhost:8080/api/navigation/list').then(res => res.json()).then(
+            (response) => {
+                setNavigation(response);
+            }
+        );
+    }
 
     return(
         <Router>
-            <Header testData={testData}/>
+            <Header testData={navigation}/>
             <main id="content-area">
                 <div className="main-content">
                     <Switch>

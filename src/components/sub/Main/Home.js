@@ -11,7 +11,7 @@ let Home = React.memo(function HomeFn (props) {
         if (!skills.length) {
             getDataFromApi();
         }
-    });
+    }, [skills]);
     //set local state from global one
     //setActiveSkill(skill);
 
